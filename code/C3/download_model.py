@@ -7,10 +7,12 @@ def download_visualized_bge_model():
     如果模型文件不存在，则从 Hugging Face 下载
     """
     # 定义模型路径和下载URL
-    model_dir = Path("../../models/bge")
+    model_dir = Path("/home/newdisk2/LLM_model_weight/bge")
     model_file = model_dir / "Visualized_base_en_v1.5.pth"
-    download_url = "https://huggingface.co/BAAI/bge-visualized/resolve/main/Visualized_base_en_v1.5.pth?download=true"
-    
+    # download_url = "https://huggingface.co/BAAI/bge-visualized/resolve/main/Visualized_base_en_v1.5.pth?download=true"
+    download_url = "https://hf-mirror.com/BAAI/bge-visualized/resolve/main/Visualized_base_en_v1.5.pth?download=true"
+
+
     # 检查模型文件是否已存在
     if model_file.exists():
         print(f"模型文件已存在: {model_file}")

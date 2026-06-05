@@ -8,7 +8,7 @@
 
 **多模态嵌入 (Multimodal Embedding)** 的目标正是为了打破这堵墙。其目的是将不同类型的数据（如图像和文本）映射到**同一个共享的向量空间**。在这个统一的空间里，一段描述“一只奔跑的狗”的文字，其向量会非常接近一张真实小狗奔跑的图片向量。
 
-实现这一目标的关键，在于解决 **跨模态对齐 (Cross-modal Alignment)** 的挑战。以对比学习、视觉 Transformer (ViT) 等技术为代表的突破，让模型能够学习到不同模态数据之间的语义关联，最终催生了像 CLIP 这样的模型。
+实现这一目标的关键，在于解决 **跨模态对齐 (Cross-modal Alignment)** 的挑战。以**对比学习、视觉 Transformer (ViT)** 等技术为代表的突破，让模型能够学习到不同模态数据之间的语义关联，最终催生了像 CLIP 这样的模型。
 
 ## 二、CLIP 模型浅析
 
@@ -46,7 +46,7 @@ bge-visualized-m3 的核心特性也可以概括为“M3”（主要继承自其
 # 进入 visual_bge 目录
 cd code/C3/visual_bge
 
-# 安装 visual_bge 模块及其依赖
+# 安装 visual_bge 模块及其依赖 (setup.py)
 pip install -e .
 
 # 返回上级目录

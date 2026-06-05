@@ -1,3 +1,4 @@
+'''封装Visualized_BGE模型'''
 import os
 import logging
 from dataclasses import dataclass
@@ -179,6 +180,7 @@ class Visualized_BGE(nn.Module):
             return hidden_state[:, 0]
 
     
+    # 纯文本编码
     def encode_text(self, texts):
         '''
         encode text only
@@ -221,7 +223,9 @@ class Visualized_BGE(nn.Module):
             t_reps = torch.nn.functional.normalize(t_reps, dim=-1)
         return t_reps.contiguous()
 
+    # 图文联合编码
     def encode_mm(self, images:torch.Tensor, texts):
+        # 先把图片转成图像token
         img_token_emb = self.img_token_embedding(images) #[B, Patch_num, C]
         img_token_emb = img_token_emb[:,1:]              # img_cls is not used here
         img_token_emb = self.visual_proj(img_token_emb)

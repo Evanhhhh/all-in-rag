@@ -2,13 +2,13 @@ import torch
 from visual_bge.visual_bge.modeling import Visualized_BGE
 
 model = Visualized_BGE(model_name_bge="BAAI/bge-base-en-v1.5",
-                      model_weight="../../models/bge/Visualized_base_en_v1.5.pth")
-model.eval()
+                      model_weight="/home/newdisk2/LLM_model_weight/bge/Visualized_base_en_v1.5.pth")
+model.eval() #模型进入推理模式，关闭dropout等
 
 with torch.no_grad():
-    text_emb = model.encode(text="datawhale开源组织的logo")
-    img_emb_1 = model.encode(image="../../data/C3/imgs/datawhale01.png")
-    multi_emb_1 = model.encode(image="../../data/C3/imgs/datawhale01.png", text="datawhale开源组织的logo")
+    text_emb = model.encode(text="datawhale开源组织的logo") #纯文本向量
+    img_emb_1 = model.encode(image="../../data/C3/imgs/datawhale01.png") #图片向量
+    multi_emb_1 = model.encode(image="../../data/C3/imgs/datawhale01.png", text="datawhale开源组织的logo") # 图文结合向量，同时输入图片和文字，让模型生成一个融合后的表示。
     img_emb_2 = model.encode(image="../../data/C3/imgs/datawhale02.png")
     multi_emb_2 = model.encode(image="../../data/C3/imgs/datawhale02.png", text="datawhale开源组织的logo")
 
